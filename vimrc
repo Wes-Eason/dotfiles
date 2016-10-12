@@ -1,3 +1,9 @@
+" Temp Section
+
+:nnoremap <F3> :w !detex \| wc -w<cr>
+:nnoremap <f4> :call ToggleIndent()<cr>
+:nnoremap <f2> z=1<cr>
+" ##########################################
 " ##########################################
 " Defaults
 " ##########################################
