@@ -16,6 +16,7 @@ let mapleader = "\<Space>"
 
 " Appearance 
 :set number
+:syntax on
 
 " - Editor Behavior ========================
 :set textwidth=80
