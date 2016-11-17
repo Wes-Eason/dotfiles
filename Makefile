@@ -2,9 +2,10 @@
 #
 # WARNING: will overwrite existing files
 # TODO: Change to single expanding rule
+# TODO: Recipe to use symlinks instead of copying
 
 
-.PHONY: all
+.PHONY: install
 all: $$HOME/.tmux.conf
 all: $$HOME/.vimrc
 all: $$HOME/.bashrc
