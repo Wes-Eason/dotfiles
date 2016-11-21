@@ -161,6 +161,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# source ~/.rvm/scripts/rvm
- export LD_LIBRARY_PATH=/usr/local/cuda-7.5/lib64:$LD_LIBRARY_PATH
