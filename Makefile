@@ -11,6 +11,7 @@ all: $$HOME/.vimrc
 all: $$HOME/.bashrc
 all: $$HOME/.bash_pathlist
 all: $$HOME/.bash_aliases
+all: $$HOME/.bash_profile
 
 
 $$HOME/.tmux.conf : tmux.conf Makefile
@@ -28,3 +29,6 @@ $$HOME/.bash_pathlist : bash_pathlist Makefile
 $$HOME/.bash_aliases : bash_aliases Makefile
 	cp bash_aliases $@;
  
+$$HOME/.bash_profile : bash_profile Makefile
+	cp bash_profile $@
+
