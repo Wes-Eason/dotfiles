@@ -75,6 +75,50 @@ HISTFILESIZE=2000
 
 # Color Prompt -------------------------
 
+color_prompt_string () {
+	# Show Time
+	PS1+='\[\e[00;32m\][\[\e[0m\]'
+	PS1+='\[\e[00;38m\]$(date +%H:%M:%S)\[\e[0m\]'
+	PS1+='\[\e[00;32m\]]\[\e[0m\]'
+
+	# user@host(short)
+	PS1+='\[\e[00;38m\] \[\e[0m\]'
+	PS1+='\[\e[00;33m\]\u\[\e[0m'
+	PS1+='\]\[\e[01;01;38m\]@\[\e[0m\]'
+	PS1+='\[\e[00;32m\]\H\[\e[0m\]'
+
+	# Curent Directory (basename)
+	PS1+='\[\e[01;38m\]:\[\e[0m\]'
+	PS1+='\[\e[00;36m\]\W\[\e[0m\]'
+
+	# $ or #
+	PS1+='\[\e[01;38m\]\\$ \[\e[0m\]'
+
+	echo "$PS1"
+}
+
+nocolor_prompt_string () {
+	# Show Time
+	PS1+='['
+	PS1+='`date +%H:%M:%S`'
+	PS1+=']'
+
+	# user@host(short)
+	PS1+=' '
+	PS1+='\u'
+	PS1+='@'
+	PS1+='\H'
+
+	# Curent Directory (basename)
+	PS1+=':'
+	PS1+='\W'
+
+	# $ or #
+	PS1+='\$ '
+
+	echo "PS1"
+}
+
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color|xterm-256color|screen-256color)
@@ -97,41 +141,9 @@ fi
 # Set PS1
 PS1=""
 if [ "$color_prompt" = yes ]; then
-	# Show Time
-	PS1+="\[\e[00;32m\][\[\e[0m\]"
-	PS1+="\[\e[00;38m\]`date +%H:%M:%S`\[\e[0m\]"
-	PS1+="\[\e[00;32m\]]\[\e[0m\]"
-
-	# user@host(short)
-	PS1+="\[\e[00;38m\] \[\e[0m\]"
-	PS1+="\[\e[00;33m\]\u\[\e[0m"
-	PS1+="\]\[\e[01;01;38m\]@\[\e[0m\]"
-	PS1+="\[\e[00;32m\]\H\[\e[0m\]"
-
-	# Curent Directory (basename)
-	PS1+="\[\e[01;38m\]:\[\e[0m\]"
-	PS1+="\[\e[00;36m\]\W\[\e[0m\]"
-
-	# $ or #
-	PS1+="\[\e[01;38m\]\\$ \[\e[0m\]"
+	PS1=$(color_prompt_string)
 else
-	# Show Time
-	PS1+="["
-	PS1+="`date +%H:%M:%S`"
-	PS1+="]"
-
-	# user@host(short)
-	PS1+=" "
-	PS1+="\u"
-	PS1+="@"
-	PS1+="\H"
-
-	# Curent Directory (basename)
-	PS1+=":"
-	PS1+="\W"
-
-	# $ or #
-	PS1+="\$ "
+	PS1=$(nocolor_prompt_string)
 fi
 
 case "$TERM" in
