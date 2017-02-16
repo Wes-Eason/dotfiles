@@ -1,0 +1,5 @@
+.PHONY: clean
+clean:
+	find "$$HOME" -type f -name desktop.ini 2>/dev/null | xargs -I{} rm '{}'
+	find "$$HOME" -type d -name '$$RECYCLE.BIN' 2>/dev/null | xargs -I{} rm -r '{}'
+	find "$$HOME" -type f -name *.swp 2>/dev/null | xargs -I{} rm '{}'

@@ -4,6 +4,7 @@
 # TODO: Change to single expanding rule
 # TODO: Recipe to use symlinks instead of copying
 
+INSTALL := install -o "$(shell whoami)" -m 0544
 
 .PHONY: install
 all: $$HOME/.tmux.conf
@@ -12,23 +13,27 @@ all: $$HOME/.bashrc
 all: $$HOME/.bash_pathlist
 all: $$HOME/.bash_aliases
 all: $$HOME/.bash_profile
+all: $$HOME/Makefile
 
 
 $$HOME/.tmux.conf : tmux.conf Makefile
-	cp tmux.conf $@;
+	$(INSTALL) tmux.conf $@;
  
 $$HOME/.vimrc : vimrc Makefile
-	cp vimrc $@;
+	$(INSTALL) vimrc $@;
 
 $$HOME/.bashrc : bashrc Makefile
-	cp bashrc $@;
+	$(INSTALL) bashrc $@;
 
 $$HOME/.bash_pathlist : bash_pathlist Makefile
-	cp bash_pathlist $@;
+	$(INSTALL) bash_pathlist $@;
 
 $$HOME/.bash_aliases : bash_aliases Makefile
-	cp bash_aliases $@;
+	$(INSTALL) bash_aliases $@;
  
 $$HOME/.bash_profile : bash_profile Makefile
-	cp bash_profile $@
+	$(INSTALL) bash_profile $@;
 
+$$HOME/Makefile : _Makefile Makefile
+	$(INSTALL) _Makefile $@;
+	
