@@ -76,33 +76,23 @@ HISTFILESIZE=2000
 # Color Prompt -------------------------
 
 color_prompt_string () {
-	# Show Time
-	PS1+='\[\e[00;32m\][\[\e[0m\]'
-	PS1+='\[\e[00;38m\]$(date +%H:%M:%S)\[\e[0m\]'
-	PS1+='\[\e[00;32m\]]\[\e[0m\]'
-
 	# user@host(short)
-	PS1+='\[\e[00;38m\] \[\e[0m\]'
-	PS1+='\[\e[00;33m\]\u\[\e[0m'
-	PS1+='\]\[\e[01;01;38m\]@\[\e[0m\]'
-	PS1+='\[\e[00;32m\]\H\[\e[0m\]'
+	PS1+='\[\e[1;49;96m\]\u\[\e[0m'
+	PS1+='\]\[\e[01;49;39m\]@\[\e[0m\]'
+	PS1+='\[\e[1;49;94m\]\H\[\e[0m\]'
 
 	# Curent Directory (basename)
-	PS1+='\[\e[01;38m\]:\[\e[0m\]'
-	PS1+='\[\e[00;36m\]\W\[\e[0m\]'
+	PS1+='\[\e[01;49;39m\]:\[\e[0m\]'
+	PS1+='\[\e[1;49;32m\]\W\[\e[0m\]'
 
 	# $ or #
-	PS1+='\[\e[01;38m\]\\$ \[\e[0m\]'
+	PS1+='\[\e[01;49;39m\]--\$ \[\e[0m\]'
 
 	echo "$PS1"
 }
 
 nocolor_prompt_string () {
 	# Show Time
-	PS1+='['
-	PS1+='`date +%H:%M:%S`'
-	PS1+=']'
-
 	# user@host(short)
 	PS1+=' '
 	PS1+='\u'
@@ -204,6 +194,7 @@ alias l='ls -CF'
 alias lal='la -lhaF'
 alias time='/usr/bin/time'
 alias please='sudo $(fc -ln -1)'
+alias bim='vim'
 
 
 ################################################################################
