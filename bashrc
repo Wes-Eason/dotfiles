@@ -83,10 +83,10 @@ color_prompt_string () {
 
 	# Curent Directory (basename)
 	PS1+='\[\e[01;49;39m\]:\[\e[0m\]'
-	PS1+='\[\e[1;49;32m\]\W\[\e[0m\]'
+	PS1+='\[\e[1;49;32m\][\W]\[\e[0m\]'
 
 	# $ or #
-	PS1+='\[\e[01;49;39m\]--\$ \[\e[0m\]'
+	PS1+='\[\e[01;49;39m\] \$ \[\e[0m\]'
 
 	echo "$PS1"
 }
