@@ -20,6 +20,7 @@ $$HOME/.tmux.conf : tmux.conf Makefile
 	$(INSTALL) tmux.conf $@;
  
 $$HOME/.vimrc : vimrc Makefile
+	[ -d ~/.vimbackup ] || mkdir ~/.vimbackup
 	$(INSTALL) vimrc $@;
 
 $$HOME/.bashrc : bashrc Makefile
