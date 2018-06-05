@@ -13,6 +13,7 @@ let mapleader = "\<Space>"
 
 " - General Settings =======================
 :set backupdir=~/.vimbackup
+:set mouse=a
 
 " Appearance 
 :set number
